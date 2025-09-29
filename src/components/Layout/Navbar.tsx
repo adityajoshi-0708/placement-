@@ -15,6 +15,7 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Bell, GraduationCap, LogOut, User } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
             {/* Notifications */}
             <Sheet open={showNotifications} onOpenChange={setShowNotifications}>
               <SheetTrigger asChild>
