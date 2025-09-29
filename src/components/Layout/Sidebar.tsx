@@ -50,9 +50,10 @@ const getNavigationItems = (role: string): NavItem[] => {
     case 'employer':
       return [
         ...baseItems,
-        { title: 'Post Job', href: '/employer/post-job', icon: Send },
         { title: 'My Jobs', href: '/employer/jobs', icon: Building },
-        { title: 'Applications', href: '/employer/applications', icon: FileText }
+        { title: 'Post Job', href: '/employer/post-job', icon: Send },
+        { title: 'Manage Jobs', href: '/employer/manage-jobs', icon: FileText },
+        { title: 'Applications', href: '/employer/applications', icon: Users }
       ];
     default:
       return baseItems;

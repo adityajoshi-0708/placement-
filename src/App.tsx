@@ -21,6 +21,9 @@ import { JobManagement } from "@/pages/Placement/JobManagement";
 import { Analytics } from "@/pages/Placement/Analytics";
 import { EmployerDashboard } from "@/pages/Employer/EmployerDashboard";
 import { PostJob } from "@/pages/Employer/PostJob";
+import { EmployerApplications } from "@/pages/Employer/EmployerApplications";
+import { ManageJobs } from "@/pages/Employer/ManageJobs";
+import { EmployerJobs } from "@/pages/Employer/EmployerJobs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -58,6 +61,9 @@ const App = () => (
               {/* Employer Routes */}
               <Route path="/employer/dashboard" element={<EmployerDashboard />} />
               <Route path="/employer/post-job" element={<PostJob />} />
+              <Route path="/employer/applications" element={<EmployerApplications />} />
+              <Route path="/employer/jobs" element={<EmployerJobs />} />
+              <Route path="/employer/manage-jobs" element={<ManageJobs />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>
