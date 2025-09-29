@@ -13,6 +13,8 @@ import { StudentApplications } from "@/pages/Student/StudentApplications";
 import { StudentProfile } from "@/pages/Student/StudentProfile";
 import { MentorDashboard } from "@/pages/Mentor/MentorDashboard";
 import { MentorApprovals } from "@/pages/Mentor/MentorApprovals";
+import { StudentsList } from "@/pages/Mentor/StudentsList";
+import { ApplicationHistory } from "@/pages/Mentor/ApplicationHistory";
 import { PlacementDashboard } from "@/pages/Placement/PlacementDashboard";
 import { InterviewScheduling } from "@/pages/Placement/InterviewScheduling";
 import { EmployerDashboard } from "@/pages/Employer/EmployerDashboard";
@@ -42,6 +44,8 @@ const App = () => (
               {/* Mentor Routes */}
               <Route path="/mentor/dashboard" element={<MentorDashboard />} />
               <Route path="/mentor/approvals" element={<MentorApprovals />} />
+              <Route path="/mentor/students" element={<StudentsList />} />
+              <Route path="/mentor/history" element={<ApplicationHistory />} />
               
               {/* Placement Officer Routes */}
               <Route path="/placement/dashboard" element={<PlacementDashboard />} />

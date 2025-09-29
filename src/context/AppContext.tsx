@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Job, Application, Notification } from '@/types';
-import { mockJobs, mockApplications, mockNotifications } from '@/data/mockData';
+import { Job, Application, Notification, User } from '@/types';
+import { mockJobs, mockApplications, mockNotifications, mockUsers } from '@/data/mockData';
 
 interface AppContextType {
   jobs: Job[];
   applications: Application[];
   notifications: Notification[];
+  users: User[];
   addJob: (job: Omit<Job, 'id' | 'postedDate'>) => void;
   addApplication: (application: Omit<Application, 'id' | 'appliedDate'>) => void;
   updateApplication: (id: number, updates: Partial<Application>) => void;
@@ -31,16 +32,19 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [jobs, setJobs] = useState<Job[]>(mockJobs);
   const [applications, setApplications] = useState<Application[]>(mockApplications);
   const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);
+  const [users, setUsers] = useState<User[]>(mockUsers);
 
   // Load data from localStorage on mount
   useEffect(() => {
     const storedJobs = localStorage.getItem('placementJobs');
     const storedApplications = localStorage.getItem('placementApplications');
     const storedNotifications = localStorage.getItem('placementNotifications');
+    const storedUsers = localStorage.getItem('placementUsers');
 
     if (storedJobs) setJobs(JSON.parse(storedJobs));
     if (storedApplications) setApplications(JSON.parse(storedApplications));
     if (storedNotifications) setNotifications(JSON.parse(storedNotifications));
+    if (storedUsers) setUsers(JSON.parse(storedUsers));
   }, []);
 
   // Save to localStorage whenever data changes
@@ -55,6 +59,10 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('placementNotifications', JSON.stringify(notifications));
   }, [notifications]);
+
+  useEffect(() => {
+    localStorage.setItem('placementUsers', JSON.stringify(users));
+  }, [users]);
 
   const addJob = (jobData: Omit<Job, 'id' | 'postedDate'>) => {
     const newJob: Job = {
@@ -99,6 +107,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     jobs,
     applications,
     notifications,
+    users,
     addJob,
     addApplication,
     updateApplication,
