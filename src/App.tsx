@@ -17,6 +17,8 @@ import { StudentsList } from "@/pages/Mentor/StudentsList";
 import { ApplicationHistory } from "@/pages/Mentor/ApplicationHistory";
 import { PlacementDashboard } from "@/pages/Placement/PlacementDashboard";
 import { InterviewScheduling } from "@/pages/Placement/InterviewScheduling";
+import { JobManagement } from "@/pages/Placement/JobManagement";
+import { Analytics } from "@/pages/Placement/Analytics";
 import { EmployerDashboard } from "@/pages/Employer/EmployerDashboard";
 import { PostJob } from "@/pages/Employer/PostJob";
 import NotFound from "./pages/NotFound";
@@ -50,6 +52,8 @@ const App = () => (
               {/* Placement Officer Routes */}
               <Route path="/placement/dashboard" element={<PlacementDashboard />} />
               <Route path="/placement/interviews" element={<InterviewScheduling />} />
+              <Route path="/placement/jobs" element={<JobManagement />} />
+              <Route path="/placement/analytics" element={<Analytics />} />
               
               {/* Employer Routes */}
               <Route path="/employer/dashboard" element={<EmployerDashboard />} />

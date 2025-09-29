@@ -29,7 +29,7 @@ import {
 
 const COLORS = ['hsl(210 79% 30%)', 'hsl(155 40% 35%)', 'hsl(24 88% 54%)', 'hsl(262 80% 40%)', 'hsl(190 80% 40%)'];
 
-export const PlacementAnalytics: React.FC = () => {
+export const Analytics: React.FC = () => {
   const { currentUser } = useAuth();
   const { applications, jobs } = useApp();
 
