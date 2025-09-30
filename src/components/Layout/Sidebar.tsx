@@ -21,9 +21,15 @@ interface NavItem {
   icon: React.ComponentType<{ className?: string }>;
 }
 
+const getRolePrefix = (role: string): string => {
+  if (role === 'placement_officer') return 'placement';
+  return role;
+};
+
 const getNavigationItems = (role: string): NavItem[] => {
+  const prefix = getRolePrefix(role);
   const baseItems: NavItem[] = [
-    { title: 'Dashboard', href: `/${role}/dashboard`, icon: Home }
+    { title: 'Dashboard', href: `/${prefix}/dashboard`, icon: Home }
   ];
 
   switch (role) {
