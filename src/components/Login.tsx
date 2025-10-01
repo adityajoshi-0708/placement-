@@ -170,6 +170,19 @@ export const Login: React.FC = () => {
                 Demo credentials are auto-filled when you select a role
               </p>
             </div>
+            
+            <div className="mt-6 text-center">
+              <p className="text-sm text-muted-foreground">
+                Don't have an account?{" "}
+                <Button
+                  variant="link"
+                  className="p-0 text-primary"
+                  onClick={() => navigate('/register')}
+                >
+                  Register here
+                </Button>
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>

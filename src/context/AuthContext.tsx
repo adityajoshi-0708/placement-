@@ -2,9 +2,20 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { User } from '@/types';
 import { mockUsers } from '@/data/mockData';
 
+interface RegistrationData {
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+  company?: string;
+  branch?: string;
+  semester?: string;
+}
+
 interface AuthContextType {
   currentUser: User | null;
   login: (email: string, role: string) => Promise<boolean>;
+  register: (data: RegistrationData) => Promise<boolean>;
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -54,9 +65,29 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const isAuthenticated = !!currentUser;
 
+  const register = async (data: RegistrationData): Promise<boolean> => {
+    // Mock registration - create a new user
+    const newUser: User = {
+      id: mockUsers.length + 1,
+      name: data.name,
+      email: data.email,
+      role: data.role as User['role'],
+      ...(data.company && { company: data.company }),
+      ...(data.branch && { branch: data.branch }),
+      ...(data.semester && { semester: parseInt(data.semester) })
+    };
+
+    // In a real app, this would be an API call
+    mockUsers.push(newUser);
+    setCurrentUser(newUser);
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    return true;
+  };
+
   const value = {
     currentUser,
     login,
+    register,
     logout,
     isAuthenticated
   };

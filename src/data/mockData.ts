@@ -128,6 +128,20 @@ export const mockApplications: Application[] = [
     studentId: 1,
     status: "pending_mentor",
     appliedDate: "2025-09-28"
+  },
+  {
+    id: 4,
+    jobId: 104,
+    studentId: 2,
+    status: "pending_mentor",
+    appliedDate: "2025-09-29"
+  },
+  {
+    id: 5,
+    jobId: 101,
+    studentId: 2,
+    status: "pending_mentor",
+    appliedDate: "2025-09-30"
   }
 ];
 

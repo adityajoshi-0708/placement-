@@ -8,6 +8,7 @@ import { AppProvider } from "@/context/AppContext";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { AuthRedirect } from "@/components/AuthRedirect";
 import { Login } from "@/components/Login";
+import { Register } from "@/components/Register";
 import { StudentDashboard } from "@/pages/Student/StudentDashboard";
 import { JobListings } from "@/pages/Student/JobListings";
 import { StudentApplications } from "@/pages/Student/StudentApplications";
@@ -41,6 +42,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<AuthRedirect />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               
               {/* Student Routes */}
               <Route path="/student/dashboard" element={<StudentDashboard />} />
